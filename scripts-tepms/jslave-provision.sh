@@ -28,7 +28,7 @@ checkver
 JenkinsUserSSHKey () {
     sudo adduser --disabled-password --gecos "" $1 --shell /bin/bash
     sudo mkdir /home/$1/$1_slave /home/$1/.ssh
-    sudo cp /vagrant/gitlab.pub /home/$1/.ssh/authorized_keys
+    sudo cp /vagrant/master.pub /home/$1/.ssh/authorized_keys
     sudo chown -R $1:$1 /home/$1/$1_slave
 }
 
