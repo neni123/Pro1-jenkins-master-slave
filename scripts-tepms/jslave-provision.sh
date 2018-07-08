@@ -51,7 +51,7 @@ dockerinstall () {
 # Username 'jslave' and password will be created in the master server and '192.168.106.100' is the IP address of the Jenkins Master server.
 swarm_slave_connector (){
     curl https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/3.8/swarm-client-3.8.jar -o /root/swarm-client.jar
-    sed -i '/^exit 0/ijava -jar /root/swarm-client.jar -username jslave -password freebsd -autoDiscoveryAddress 192.168.106.100 &' /etc/rc.local
+    sed -i '/^exit 0/ijava -jar /root/swarm-client.jar -username jslave -password welcome -autoDiscoveryAddress 192.168.106.100 &' /etc/rc.local
     add-apt-repository -y ppa:webupd8team/java && apt-get update
     echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
     echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections

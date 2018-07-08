@@ -30,7 +30,7 @@ then
     yum upgrade -y
 elif [ "$relver" = "Ubuntu" ]
 then
-    DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get dist-upgrade -y
+    DEBIAN_FRONTEND=noninteractive && apt-get update -y
     ls -la ~/ > /root/homelist.txt
 else
     echo "Script is not determined the type of Operation System!!!" | tee -a ${LOG}
