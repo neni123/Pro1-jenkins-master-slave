@@ -32,6 +32,10 @@ dockerinstall () {
     apt-get update && apt-get install -y docker-ce
     usermod -aG docker ubuntu
 }
+
+addPublicKey(){
+    sudo cp /vagrant/master.pub /root/.ssh/authorized_keys
+}
  
 if [ "$relver" = "rhel6" -o "$relver" = "rhel7" ]
 then
@@ -39,6 +43,7 @@ then
 elif [ "$relver" = "Ubuntu" ]
 then
     dockerinstall
+    addPublicKey
 else
     echo "Script is not determined the type of Operation System!!!" | tee -a ${LOG}
 fi
